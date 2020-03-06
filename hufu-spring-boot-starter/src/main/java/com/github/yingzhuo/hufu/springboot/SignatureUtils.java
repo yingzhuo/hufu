@@ -17,6 +17,9 @@ import org.springframework.context.ApplicationContextAware;
 
 import java.io.File;
 import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.file.Path;
 
 /**
  * 签名工具
@@ -38,11 +41,13 @@ public final class SignatureUtils implements ApplicationContextAware {
         return applicationContext.getBean(SecretFactory.class).createFromString(value);
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
+
     public static String sign(byte[] data, PrivateKey privateKey) {
         return applicationContext.getBean(Signature.class).sign(data, privateKey);
     }
 
-    public static String sign(String data, PrivateKey privateKey) {
+    public static String sign(CharSequence data, PrivateKey privateKey) {
         return applicationContext.getBean(Signature.class).sign(data, privateKey);
     }
 
@@ -54,11 +59,29 @@ public final class SignatureUtils implements ApplicationContextAware {
         return applicationContext.getBean(Signature.class).sign(data, privateKey);
     }
 
+    public static String sign(RandomAccessFile data, PrivateKey privateKey) {
+        return applicationContext.getBean(Signature.class).sign(data, privateKey);
+    }
+
+    public static String sign(Path data, PrivateKey privateKey) {
+        return applicationContext.getBean(Signature.class).sign(data, privateKey);
+    }
+
+    public static String sign(ByteBuffer data, PrivateKey privateKey) {
+        return applicationContext.getBean(Signature.class).sign(data, privateKey);
+    }
+
+    public static String sign(SerializableObject data, PrivateKey privateKey) {
+        return applicationContext.getBean(Signature.class).sign(data, privateKey);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
     public static boolean verify(byte[] data, String sign, PublicKey publicKey) {
         return applicationContext.getBean(Signature.class).verify(data, sign, publicKey);
     }
 
-    public static boolean verify(String data, String sign, PublicKey publicKey) {
+    public static boolean verify(CharSequence data, String sign, PublicKey publicKey) {
         return applicationContext.getBean(Signature.class).verify(data, sign, publicKey);
     }
 
@@ -70,6 +93,22 @@ public final class SignatureUtils implements ApplicationContextAware {
         return applicationContext.getBean(Signature.class).verify(data, sign, publicKey);
     }
 
+    public static boolean verify(RandomAccessFile data, String sign, PublicKey publicKey) {
+        return applicationContext.getBean(Signature.class).verify(data, sign, publicKey);
+    }
+
+    public static boolean verify(Path data, String sign, PublicKey publicKey) {
+        return applicationContext.getBean(Signature.class).verify(data, sign, publicKey);
+    }
+
+    public static boolean verify(ByteBuffer data, String sign, PublicKey publicKey) {
+        return applicationContext.getBean(Signature.class).verify(data, sign, publicKey);
+    }
+
+    public static boolean verify(SerializableObject data, String sign, PublicKey publicKey) {
+        return applicationContext.getBean(Signature.class).verify(data, sign, publicKey);
+    }
+
     // -----------------------------------------------------------------------------------------------------------------
 
     SignatureUtils() {
@@ -77,7 +116,7 @@ public final class SignatureUtils implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        log.info("SignatureUtils set up!");
+        log.info("{}} set up!", SignatureUtils.class.getName());
         SignatureUtils.applicationContext = applicationContext;
     }
 

@@ -9,7 +9,10 @@
 package com.github.yingzhuo.hufu.api;
 
 import java.io.*;
+import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 /**
  * IO相关工具
@@ -19,27 +22,32 @@ import java.nio.charset.StandardCharsets;
  */
 final class IO {
 
-    static byte[] toBytes(String data) {
-        return data.getBytes(StandardCharsets.UTF_8);
+    static byte[] toBytes(CharSequence data) {
+        return data.toString().getBytes(StandardCharsets.UTF_8);
     }
 
     static byte[] toBytes(InputStream data) throws IOException {
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        byte[] buffer = new byte[0xFFFF];
-        for (int len = data.read(buffer); len != -1; len = data.read(buffer)) {
-            os.write(buffer, 0, len);
-        }
-        return os.toByteArray();
+        byte[] bytes = new byte[data.available()];
+        data.read(bytes);
+        return bytes;
     }
 
     static byte[] toBytes(File file) throws IOException {
+        return Files.readAllBytes(file.toPath());
+    }
+
+    static byte[] toBytes(RandomAccessFile file) throws IOException {
         byte[] data = new byte[(int) file.length()];
-        FileInputStream fileInputStream = new FileInputStream(file);
-        DataInputStream dataInputStream = new DataInputStream(fileInputStream);
-        dataInputStream.readFully(data);
-        close(dataInputStream);
-        close(fileInputStream);
+        file.readFully(data);
         return data;
+    }
+
+    static byte[] toBytes(Path data) throws IOException {
+        return Files.readAllBytes(data);
+    }
+
+    static byte[] toBytes(ByteBuffer data) {
+        return data.array();
     }
 
     static void close(Closeable closeable) {
