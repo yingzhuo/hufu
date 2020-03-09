@@ -8,13 +8,15 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 package com.github.yingzhuo.hufu.api;
 
+import java.io.Serializable;
+
 /**
  * @author 应卓
  * @since 1.0.1
  */
 @FunctionalInterface
-public interface SerializableObject extends java.io.Serializable {
+public interface BytesSerializable extends Serializable {
 
-    public byte[] serializeToBytes();
+    public byte[] serialize();
 
 }

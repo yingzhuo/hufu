@@ -33,6 +33,8 @@ public final class SignatureUtils implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext;
 
+    // -----------------------------------------------------------------------------------------------------------------
+
     public static Secret createRandom() {
         return applicationContext.getBean(SecretFactory.class).createRandom();
     }
@@ -71,7 +73,7 @@ public final class SignatureUtils implements ApplicationContextAware {
         return applicationContext.getBean(Signature.class).sign(data, privateKey);
     }
 
-    public static String sign(SerializableObject data, PrivateKey privateKey) {
+    public static String sign(BytesSerializable data, PrivateKey privateKey) {
         return applicationContext.getBean(Signature.class).sign(data, privateKey);
     }
 
@@ -105,7 +107,7 @@ public final class SignatureUtils implements ApplicationContextAware {
         return applicationContext.getBean(Signature.class).verify(data, sign, publicKey);
     }
 
-    public static boolean verify(SerializableObject data, String sign, PublicKey publicKey) {
+    public static boolean verify(BytesSerializable data, String sign, PublicKey publicKey) {
         return applicationContext.getBean(Signature.class).verify(data, sign, publicKey);
     }
 

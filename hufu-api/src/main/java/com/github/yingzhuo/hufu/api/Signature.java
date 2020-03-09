@@ -64,8 +64,8 @@ public interface Signature {
         return sign(toBytes(data), privateKey);
     }
 
-    public default String sign(SerializableObject serializableObject, PrivateKey privateKey) {
-        return sign(serializableObject.serializeToBytes(), privateKey);
+    public default String sign(BytesSerializable data, PrivateKey privateKey) {
+        return sign(data.serialize(), privateKey);
     }
 
     // ---------------------------------------------------------------------------------------------------------------
@@ -112,8 +112,8 @@ public interface Signature {
         return verify(toBytes(data), sign, publicKey);
     }
 
-    public default boolean verify(SerializableObject data, String sign, PublicKey publicKey) {
-        return verify(data.serializeToBytes(), sign, publicKey);
+    public default boolean verify(BytesSerializable data, String sign, PublicKey publicKey) {
+        return verify(data.serialize(), sign, publicKey);
     }
 
 }

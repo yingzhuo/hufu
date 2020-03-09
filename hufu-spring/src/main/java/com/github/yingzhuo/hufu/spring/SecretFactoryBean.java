@@ -40,4 +40,5 @@ public class SecretFactoryBean implements FactoryBean<SecretFactory>, Initializi
             throw new BeanCreationException(e.getMessage(), e);
         }
     }
+
 }

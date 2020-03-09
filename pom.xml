@@ -7,7 +7,7 @@
 
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <modules>
         <module>hufu-api</module>
         <module>hufu-core</module>
@@ -84,14 +84,6 @@
                 <groupId>com.github.yingzhuo</groupId>
                 <artifactId>hufu-spring</artifactId>
                 <version>${project.version}</version>
-            </dependency>
-
-            <!-- junit -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.13</version>
-                <scope>test</scope>
             </dependency>
 
             <!-- slf4j -->
