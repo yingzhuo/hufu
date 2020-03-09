@@ -14,42 +14,42 @@ Hufu is "虎符".
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-api</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-core</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 <!-- ECDSA -->
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-impl-ecdsa</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 <!-- DSA -->
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-impl-dsa</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 <!-- RSA -->
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-impl-rsa</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 
 <!-- spring / spring-boot -->
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-spring</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-spring-boot-starter</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -103,7 +103,7 @@ Download the starter of spring-boot.
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-spring-boot-starter</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
