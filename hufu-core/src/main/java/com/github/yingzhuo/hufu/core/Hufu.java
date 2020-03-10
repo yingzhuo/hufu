@@ -8,11 +8,15 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 package com.github.yingzhuo.hufu.core;
 
-import com.github.yingzhuo.hufu.api.SecretFactory;
-import com.github.yingzhuo.hufu.api.Signature;
+import com.github.yingzhuo.hufu.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.file.Path;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ServiceLoader;
@@ -24,6 +28,11 @@ import java.util.ServiceLoader;
 public final class Hufu {
 
     private static final Logger log = LoggerFactory.getLogger(Hufu.class);
+
+    private static final SecretFactory secretFactory = createSecretFactory();
+    private static final Signature signature = createSignature();
+
+    // -----------------------------------------------------------------------------------------------------------------
 
     public static SecretFactory createSecretFactory() {
         final ServiceLoader<SecretFactory> loader = ServiceLoader.load(SecretFactory.class);
@@ -65,6 +74,84 @@ public final class Hufu {
             }
         }
         return found.iterator().next();
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    public static Secret createRandom() {
+        return secretFactory.createRandom();
+    }
+
+    public static Secret createFromString(String value) {
+        return secretFactory.createFromString(value);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    public static String sign(byte[] data, PrivateKey privateKey) {
+        return signature.sign(data, privateKey);
+    }
+
+    public static String sign(CharSequence data, PrivateKey privateKey) {
+        return signature.sign(data, privateKey);
+    }
+
+    public static String sign(InputStream data, PrivateKey privateKey) {
+        return signature.sign(data, privateKey);
+    }
+
+    public static String sign(File data, PrivateKey privateKey) {
+        return signature.sign(data, privateKey);
+    }
+
+    public static String sign(RandomAccessFile data, PrivateKey privateKey) {
+        return signature.sign(data, privateKey);
+    }
+
+    public static String sign(Path data, PrivateKey privateKey) {
+        return signature.sign(data, privateKey);
+    }
+
+    public static String sign(ByteBuffer data, PrivateKey privateKey) {
+        return signature.sign(data, privateKey);
+    }
+
+    public static String sign(BytesSerializable data, PrivateKey privateKey) {
+        return signature.sign(data, privateKey);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    public static boolean verify(byte[] data, String sign, PublicKey publicKey) {
+        return signature.verify(data, sign, publicKey);
+    }
+
+    public static boolean verify(CharSequence data, String sign, PublicKey publicKey) {
+        return signature.verify(data, sign, publicKey);
+    }
+
+    public static boolean verify(InputStream data, String sign, PublicKey publicKey) {
+        return signature.verify(data, sign, publicKey);
+    }
+
+    public static boolean verify(File data, String sign, PublicKey publicKey) {
+        return signature.verify(data, sign, publicKey);
+    }
+
+    public static boolean verify(RandomAccessFile data, String sign, PublicKey publicKey) {
+        return signature.verify(data, sign, publicKey);
+    }
+
+    public static boolean verify(Path data, String sign, PublicKey publicKey) {
+        return signature.verify(data, sign, publicKey);
+    }
+
+    public static boolean verify(ByteBuffer data, String sign, PublicKey publicKey) {
+        return signature.verify(data, sign, publicKey);
+    }
+
+    public static boolean verify(BytesSerializable data, String sign, PublicKey publicKey) {
+        return signature.verify(data, sign, publicKey);
     }
 
     // -----------------------------------------------------------------------------------------------------------------

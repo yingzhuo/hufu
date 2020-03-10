@@ -7,15 +7,13 @@
 
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <modules>
         <module>hufu-api</module>
         <module>hufu-core</module>
-        <module>hufu-impl-dsa</module>
         <module>hufu-impl-ecdsa</module>
+        <module>hufu-impl-dsa</module>
         <module>hufu-impl-rsa</module>
-        <module>hufu-spring</module>
-        <module>hufu-spring-boot-starter</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -92,31 +90,6 @@
                 <artifactId>slf4j-api</artifactId>
                 <version>1.7.30</version>
             </dependency>
-
-            <!-- spring -->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-beans</artifactId>
-                <version>5.2.4.RELEASE</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>5.2.4.RELEASE</version>
-            </dependency>
-
-            <!-- spring-boot -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-configuration-processor</artifactId>
-                <version>2.2.5.RELEASE</version>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-autoconfigure</artifactId>
-                <version>2.2.5.RELEASE</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -156,7 +129,6 @@
                     <encoding>${encoding}</encoding>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <compilerArgument>-Xlint:deprecation</compilerArgument>
                 </configuration>
             </plugin>
             <plugin>
