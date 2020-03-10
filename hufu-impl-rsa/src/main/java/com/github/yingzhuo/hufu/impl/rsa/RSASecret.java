@@ -19,7 +19,7 @@ import com.github.yingzhuo.hufu.api.Secret;
  * @see com.github.yingzhuo.hufu.api.PrivateKey
  * @since 0.1.0
  */
-public class RSASecret implements Secret {
+public final class RSASecret implements Secret {
 
     private final String publicKey;
     private final String privateKey;

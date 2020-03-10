@@ -19,7 +19,7 @@ import com.github.yingzhuo.hufu.api.Secret;
  * @see com.github.yingzhuo.hufu.api.PrivateKey
  * @since 0.1.3
  */
-public class DSASecret implements Secret {
+public final class DSASecret implements Secret {
 
     private final String publicKey;
     private final String privateKey;

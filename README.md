@@ -14,30 +14,30 @@ Hufu is "虎符".
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-api</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-core</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 <!-- ECDSA -->
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-impl-ecdsa</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 <!-- DSA -->
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-impl-dsa</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 <!-- RSA -->
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-impl-rsa</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 ```
 

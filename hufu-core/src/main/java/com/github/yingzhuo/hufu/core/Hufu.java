@@ -78,11 +78,11 @@ public final class Hufu {
 
     // -----------------------------------------------------------------------------------------------------------------
 
-    public static Secret createRandom() {
+    public static Secret createSecretRandom() {
         return secretFactory.createRandom();
     }
 
-    public static Secret createFromString(String value) {
+    public static Secret createSecretFromString(String value) {
         return secretFactory.createFromString(value);
     }
 

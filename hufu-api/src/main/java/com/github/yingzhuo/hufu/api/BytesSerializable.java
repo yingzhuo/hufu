@@ -12,6 +12,7 @@ import java.io.Serializable;
 
 /**
  * @author 应卓
+ * @see BytesBuilder
  * @since 1.0.1
  */
 @FunctionalInterface
