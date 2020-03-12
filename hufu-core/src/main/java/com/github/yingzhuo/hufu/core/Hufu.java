@@ -120,6 +120,10 @@ public final class Hufu {
         return signature.sign(data, privateKey);
     }
 
+    public static String sign(BytesBuilder data, PrivateKey privateKey) {
+        return signature.sign(data.build(), privateKey);
+    }
+
     // -----------------------------------------------------------------------------------------------------------------
 
     public static boolean verify(byte[] data, String sign, PublicKey publicKey) {
@@ -152,6 +156,10 @@ public final class Hufu {
 
     public static boolean verify(BytesSerializable data, String sign, PublicKey publicKey) {
         return signature.verify(data, sign, publicKey);
+    }
+
+    public static boolean verify(BytesBuilder data, String sign, PublicKey publicKey) {
+        return signature.verify(data.build(), sign, publicKey);
     }
 
     // -----------------------------------------------------------------------------------------------------------------

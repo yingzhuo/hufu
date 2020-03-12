@@ -7,7 +7,7 @@
 
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <modules>
         <module>hufu-api</module>
         <module>hufu-core</module>
@@ -16,6 +16,8 @@
         <module>hufu-impl-rsa</module>
     </modules>
     <packaging>pom</packaging>
+
+    <description>Digital signature tools for Java.</description>
 
     <name>hufu</name>
     <url>https://github.com/yingzhuo/hufu</url>

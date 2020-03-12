@@ -14,12 +14,11 @@ package com.github.yingzhuo.hufu.core;
  */
 public class NoImplementException extends RuntimeException {
 
-    public NoImplementException(String message) {
-        super(message);
+    public NoImplementException() {
     }
 
-    public NoImplementException(String message, Throwable cause) {
-        super(message, cause);
+    public NoImplementException(String message) {
+        super(message);
     }
 
 }

@@ -44,11 +44,6 @@ public final class DSASecret implements Secret {
     }
 
     @Override
-    public String toString() {
-        return String.format("%s:%s", getPublicKey(), getPrivateKey());
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -64,6 +59,11 @@ public final class DSASecret implements Secret {
         int result = publicKey.hashCode();
         result = 31 * result + privateKey.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s:%s", getPublicKey(), getPrivateKey());
     }
 
 }
