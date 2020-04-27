@@ -24,7 +24,6 @@ import java.util.Base64;
 public class ECDSASecretFactory implements SecretFactory {
 
     private static final String ALG = "EC";
-    private static final int DEFAULT_KEY_SIZE = 1024;
 
     @Override
     public Secret createRandom() {
