@@ -22,6 +22,10 @@ public final class BytesBuilder {
 
     private final ByteArrayOutputStream out;
 
+    private BytesBuilder() {
+        this.out = new ByteArrayOutputStream(1024);
+    }
+
     public static BytesBuilder newInstance() {
         return new BytesBuilder();
     }
@@ -41,10 +45,6 @@ public final class BytesBuilder {
 
     public byte[] build() {
         return this.out.toByteArray();
-    }
-
-    private BytesBuilder() {
-        this.out = new ByteArrayOutputStream(1024);
     }
 
 }

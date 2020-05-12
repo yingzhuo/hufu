@@ -22,6 +22,9 @@ import java.nio.file.Path;
  */
 final class IO {
 
+    private IO() {
+    }
+
     static byte[] toBytes(CharSequence data) {
         return data.toString().getBytes(StandardCharsets.UTF_8);
     }
@@ -50,6 +53,8 @@ final class IO {
         return data.array();
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
+
     static void close(Closeable closeable) {
         if (closeable != null) {
             try {
@@ -58,10 +63,5 @@ final class IO {
                 // NOP
             }
         }
-    }
-
-    // -----------------------------------------------------------------------------------------------------------------
-
-    private IO() {
     }
 }

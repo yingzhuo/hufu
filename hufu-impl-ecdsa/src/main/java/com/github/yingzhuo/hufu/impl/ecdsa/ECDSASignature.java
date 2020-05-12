@@ -32,6 +32,14 @@ public class ECDSASignature implements Signature {
     private static final String EC = "EC";
     private static final String SHA1_WITH_ECDSA = "SHA1withECDSA";
 
+    private static byte[] decryptBase64(String key) {
+        return Base64.getDecoder().decode(key);
+    }
+
+    private static String encryptBase64(byte[] key) {
+        return new String(Base64.getEncoder().encode(key));
+    }
+
     @Override
     public String sign(byte[] data, PrivateKey privateKey) {
         final String str;
@@ -82,13 +90,5 @@ public class ECDSASignature implements Signature {
         } catch (InvalidKeySpecException | InvalidKeyException | SignatureException e) {
             throw new com.github.yingzhuo.hufu.api.SignatureException(e);
         }
-    }
-
-    private static byte[] decryptBase64(String key) {
-        return Base64.getDecoder().decode(key);
-    }
-
-    private static String encryptBase64(byte[] key) {
-        return new String(Base64.getEncoder().encode(key));
     }
 }

@@ -34,6 +34,10 @@ public final class Hufu {
 
     // -----------------------------------------------------------------------------------------------------------------
 
+    // -----------------------------------------------------------------------------------------------------------------
+    private Hufu() {
+    }
+
     public static SecretFactory createSecretFactory() {
         final ServiceLoader<SecretFactory> loader = ServiceLoader.load(SecretFactory.class);
 
@@ -54,6 +58,8 @@ public final class Hufu {
         }
         return found.iterator().next();
     }
+
+    // -----------------------------------------------------------------------------------------------------------------
 
     public static Signature createSignature() {
         final ServiceLoader<Signature> loader = ServiceLoader.load(Signature.class);
@@ -76,17 +82,15 @@ public final class Hufu {
         return found.iterator().next();
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
-
     public static Secret createSecretRandom() {
         return secretFactory.createRandom();
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
+
     public static Secret createSecretFromString(String value) {
         return secretFactory.createFromString(value);
     }
-
-    // -----------------------------------------------------------------------------------------------------------------
 
     public static String sign(byte[] data, PrivateKey privateKey) {
         return signature.sign(data, privateKey);
@@ -120,11 +124,11 @@ public final class Hufu {
         return signature.sign(data, privateKey);
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
+
     public static String sign(BytesBuilder data, PrivateKey privateKey) {
         return signature.sign(data.build(), privateKey);
     }
-
-    // -----------------------------------------------------------------------------------------------------------------
 
     public static boolean verify(byte[] data, String sign, PublicKey publicKey) {
         return signature.verify(data, sign, publicKey);
@@ -160,9 +164,5 @@ public final class Hufu {
 
     public static boolean verify(BytesBuilder data, String sign, PublicKey publicKey) {
         return signature.verify(data.build(), sign, publicKey);
-    }
-
-    // -----------------------------------------------------------------------------------------------------------------
-    private Hufu() {
     }
 }

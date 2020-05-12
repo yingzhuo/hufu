@@ -32,6 +32,14 @@ public class RSASignature implements Signature {
     private static final String RSA = "RSA";
     private static final String MD5_WITH_RSA = "MD5withRSA";
 
+    private static byte[] decryptBase64(String key) {
+        return Base64.getDecoder().decode(key);
+    }
+
+    private static String encryptBase64(byte[] key) {
+        return new String(Base64.getEncoder().encode(key));
+    }
+
     @Override
     public String sign(byte[] data, PrivateKey privateKey) {
         final String str;
@@ -82,13 +90,5 @@ public class RSASignature implements Signature {
         } catch (InvalidKeySpecException | InvalidKeyException | SignatureException e) {
             throw new com.github.yingzhuo.hufu.api.SignatureException(e);
         }
-    }
-
-    private static byte[] decryptBase64(String key) {
-        return Base64.getDecoder().decode(key);
-    }
-
-    private static String encryptBase64(byte[] key) {
-        return new String(Base64.getEncoder().encode(key));
     }
 }
