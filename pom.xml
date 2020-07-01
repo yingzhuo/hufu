@@ -48,6 +48,7 @@
             <id>yingzhuo</id>
             <name>应卓</name>
             <email>yingzhor@gmail.com</email>
+            <timezone>+8</timezone>
         </developer>
     </developers>
 
@@ -172,7 +173,7 @@
         <profile>
             <id>sonar</id>
             <activation>
-                <jdk>[1.8,)</jdk>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <build>
                 <plugins>
