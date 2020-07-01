@@ -23,7 +23,7 @@ public final class BytesBuilder {
     private final ByteArrayOutputStream out;
 
     private BytesBuilder() {
-        this.out = new ByteArrayOutputStream(1024);
+        this.out = new ByteArrayOutputStream(2048);
     }
 
     public static BytesBuilder newInstance() {
@@ -41,6 +41,11 @@ public final class BytesBuilder {
             throw new UncheckedIOException("Failed to serialize object of type: " + object.getClass(), ex);
         }
         return this;
+    }
+
+    public BytesBuilder appendIfPresent(Object object) {
+        if (object == null) return this;
+        return append(object);
     }
 
     public byte[] build() {

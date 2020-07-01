@@ -14,9 +14,6 @@ package com.github.yingzhuo.hufu.core;
  */
 public class NoImplementException extends RuntimeException {
 
-    public NoImplementException() {
-    }
-
     public NoImplementException(String message) {
         super(message);
     }

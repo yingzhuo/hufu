@@ -8,7 +8,10 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 package com.github.yingzhuo.hufu.api;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -53,15 +56,4 @@ final class IO {
         return data.array();
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
-
-    static void close(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (IOException e) {
-                // NOP
-            }
-        }
-    }
 }
