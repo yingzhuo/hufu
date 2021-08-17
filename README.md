@@ -11,6 +11,7 @@ Hufu is "虎符".
 * [maven / gradle](https://search.maven.org/search?q=hufu) is highly recommended.
 
 ```xml
+<!-- core / api -->
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-api</artifactId>
@@ -21,19 +22,21 @@ Hufu is "虎符".
     <artifactId>hufu-core</artifactId>
     <version>${last.version}</version>
 </dependency>
-<!-- ECDSA -->
+
+<!-- ecdsa -->
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-impl-ecdsa</artifactId>
     <version>${last.version}</version>
 </dependency>
-<!-- DSA -->
+<!-- dsa -->
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-impl-dsa</artifactId>
     <version>${last.version}</version>
 </dependency>
-<!-- RSA -->
+
+<!-- rsa -->
 <dependency>
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>hufu-impl-rsa</artifactId>
